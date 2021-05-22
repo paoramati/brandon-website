@@ -1,9 +1,11 @@
-import { NAME, SITE_TITLE } from '../lib/my-contstants'
+import { NAME, SITE_TITLE, LINKS} from '../lib/my-contstants'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import NavBar from './nav/navbar'
+
 
 export default function Layout({ children, home }) {
   return (
@@ -24,9 +26,11 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={SITE_TITLE} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      
+      <header >
+      <NavBar links={LINKS} ></NavBar>
         {home ? (
-          <>
+          <div className={styles.header}>
             <Image
               priority
               src="/images/brandon.jpg"
@@ -36,9 +40,9 @@ export default function Layout({ children, home }) {
               alt={NAME}
             />
             <h1 className={utilStyles.heading2Xl}>{NAME}</h1>
-          </>
+          </div>
         ) : (
-          <>
+          <div className={styles.header}>
             <Link href="/">
               <a>
                 <Image
@@ -56,10 +60,12 @@ export default function Layout({ children, home }) {
                 <a className={utilStyles.colorInherit}>{NAME}</a>
               </Link>
             </h2>
-          </>
+          </div>
         )}
       </header>  {/* End header */}
-     
+
+
+
       {/* Main content */}
       <main>{children}</main>
 
