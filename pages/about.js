@@ -12,19 +12,29 @@ export default function About() {
         <Head>
           <title>About</title>
         </Head>
-        <h1>About</h1>
-        <div>
-          <Image
-            priority
-            src="/images/brandon.jpg"
-            className={utilStyles.borderCircle}
-            height={144}
-            width={144}
-            alt={NAME}
-          />
-          <h1 className={utilStyles.heading2Xl}>{NAME}</h1>
+        <div className="container">
+          <h1 className={utilStyles.heading2Xl}>About</h1>
+          {/* <div> */}
+            <Image
+              priority
+              src="/images/brandon.jpg"
+              className={utilStyles.borderCircle}
+              height={144}
+              width={144}
+              alt={NAME}
+            />
+            <p>(beauty shot only)</p>
+            {/* <h1 className={utilStyles.heading2Xl}>{NAME}</h1> */}
+          {/* </div> */}
         </div>
       </Layout>
+      <style jsx>{`
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      `}</style>
     </>
   )
 }
