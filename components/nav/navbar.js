@@ -10,7 +10,13 @@ export default function NavBar({ links }) {
     <nav className={styles.navContainer}>
       {links.map((link, index) => {
         const isActive = router.pathname == link.url;
-        return <NavItem key={index} link={link} active={isActive}></NavItem>
+        return (
+          <NavItem
+            key={index}
+            link={link}
+            active={isActive}
+          />
+        )
       })}
     </nav>
   )

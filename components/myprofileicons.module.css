@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > * {
+  /* border: 1px solid red; */
+}
+
+.icon {
+  font-size: 45px;
+  /* width: 90px; */
+}
+
+.child {
+  padding: 0.3rem;
+}

@@ -2,15 +2,19 @@
 
 .navContainer {
   display: flex;
-  /* justify-content: space-around; */
+  align-items: center;
+  /* flex-direction: row-reverse; */
+  justify-content: center;
   /* align-items: flex-start; */
-  background-color: #333;
+  /* background-color: #333; */
+  /* border: 1px solid #333; */
   /* overflow: hidden; */
 }
 
 .navItem {
   /* float: left; */
-  color: #f2f2f2;
+  /* color: #f2f2f2; */
+  color: #333;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -18,8 +22,13 @@
   /* color: red; */
 }
 
+.logo {
+  align-self: flex-start;
+}
+
 .active {
-  background-color: var(--secondaryColor);
+  /* background-color: var(--secondaryColor); */
+  border: 1px solid #333;
 }
 
 .navItem:active {
@@ -27,7 +36,7 @@
 }
 
 .navItem:hover {
-  color: var(--primaryColor);
+  /* color: var(--primaryColor); */
   background-color: #f2f2f2;
   text-decoration: none;
   text-align: center;

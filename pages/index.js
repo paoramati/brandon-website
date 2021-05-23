@@ -5,6 +5,8 @@ import { SITE_TITLE } from '../lib/my-contstants'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
+// import MyProfileIcons from '../components/myprofileicons'
+
 
 export default function Home({ allPostsData }) {
   return (
@@ -14,12 +16,6 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>I'm Brandon. I'm a software developer, and I like posting info dumps about how I solve problems. Hopefully that might be helpful to you.</p>
-        <p>
-          <a href="https://github.com/paoramati" target="_blank">My GitHub</a>
-        </p>
-        <p>
-          <a href="https://twitter.com/Brand_On_Jitsu" target="_blank">My Twitter</a>
-        </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
