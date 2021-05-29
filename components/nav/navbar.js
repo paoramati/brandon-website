@@ -9,29 +9,22 @@ import { useRouter } from "next/router";
 import { navButtons } from '../../lib/config/navigation'
 import { isEmptyArray } from '../../lib/utils/array-utils'
 
+import { useState } from 'react';
 
 
 
-function ToggleButton() {
 
-  function toggleMenu(e) {
-    console.log("AIS >  ~ file: navbar.js ~ line 13 ~ toggleMenu ~ e", e)
+export default function NavBar() {
+
+  const [active, setActive] = useState(true);
+  const handleSetActive = (value) => {
+    setActive(!value)
   }
 
-  return (<li className={styles.toggle} onClick={toggleMenu}>
-    <a href="#">
-      <FontAwesomeIcon className={styles.icon} icon={['fas', 'bars']} />
-    </a>
-  </li>);
-}
-
-
-export default function NavBar({ links }) {
   const router = useRouter();
-  console.log('navButtons: ', navButtons)
   return (
     <nav className={styles.nav}>
-      <ul className={styles.menu}>
+      <ul className={`${styles.menu} ${active ? styles.active : ''}`}>
 
         {/* <li className="logo"> */}
         <NavItem
@@ -64,7 +57,7 @@ export default function NavBar({ links }) {
           }
         })}
 
-        <ToggleButton></ToggleButton>
+        <ToggleButton onClick={handleSetActive}></ToggleButton>
 
       </ul>
     </nav>
@@ -101,6 +94,33 @@ function NavItem(props) {
         </a>
       </li>
     </Link>
+  );
+}
 
+function ToggleButton({ onClick }) {
+
+  const [active, setActive] = useState(false)
+// console.log("AIS >  ~ file: navbar.js ~ line 101 ~ ToggleButton ~ activeValue, onClick ", activeValue, onClick )
+
+  function toggleMenu(e) {
+
+    setActive(!active)
+
+    // console.log("AIS >  ~ file: navbar.js ~ line 103 ~ toggleMenu ~ e", e)
+    const value = e.target.value;
+    // console.log("AIS >  ~ file: navbar.js ~ line 106 ~ toggleMenu ~ value", value)
+    onClick(active)
+  }
+
+  return (
+    <li className={styles.toggle} onClick={toggleMenu}>
+      <a href="#">
+        {active ? (
+          <FontAwesomeIcon className={styles.icon} icon={['fas', 'bars']} />
+        ) : (
+          <FontAwesomeIcon className={styles.icon} icon={['fas', 'times']} />
+        )}
+      </a>
+    </li>
   );
 }
