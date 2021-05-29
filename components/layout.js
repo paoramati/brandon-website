@@ -1,6 +1,7 @@
-import { NAME, SITE_TITLE, LINKS } from '../lib/my-contstants'
+import { NAME, SITE_TITLE } from '../lib/my-contstants'
 import Head from 'next/head'
 import Image from 'next/image'
+// import styles from '/layout.module.css'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
@@ -9,8 +10,7 @@ import MyProfileIcons from '../components/myprofileicons'
 
 export default function Layout({ children, home }) {
   return (
-    <div
-      className={styles.container}>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -27,36 +27,40 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <header>
-        <div className="header">
+      <NavBar />
 
-          <NavBar links={LINKS} ></NavBar>
-        </div>
-        {home ? (
-          <div className={styles.header}>
+      <div
+        className={styles.container}>
+
+        <header>
+          <div className="header">
           </div>
-        ) : (
-          <div className={styles.header}>
+          {home ? (
+            <div className={styles.header}>
+            </div>
+          ) : (
+            <div className={styles.header}>
+            </div>
+          )}
+        </header>  {/* End header */}
+
+
+
+        {/* Main content */}
+        <main>{children}</main>
+
+        {/* Back to home button */}
+        {!home && (
+          <div className={styles.backToHome}>
+            <Link href="/">
+              <a>← Back to home</a>
+            </Link>
           </div>
         )}
-      </header>  {/* End header */}
-
-
-
-      {/* Main content */}
-      <main>{children}</main>
-
-      {/* Back to home button */}
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
-      <footer className="footer">
-        <MyProfileIcons></MyProfileIcons>
-      </footer>
-    </div>
+        <footer className="footer">
+          <MyProfileIcons></MyProfileIcons>
+        </footer>
+      </div>
+    </>
   )
 }

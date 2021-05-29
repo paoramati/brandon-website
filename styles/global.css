@@ -18,6 +18,7 @@ body {
 :root {
   --primaryColor: blue;
   --secondaryColor: green;
+  --selected: #0070f3;
 }
 
 
