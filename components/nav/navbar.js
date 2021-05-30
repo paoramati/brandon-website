@@ -35,6 +35,7 @@ export default function NavBar() {
 
         {/* Creates a parent nav item with a recursive list of nav items, else returns a top level navitem */}
         {menuItems.map((menuItem, index) => {
+          // {console.log(menuItem)}
           const isActive = router.pathname == menuItem.href;
           if (!isEmptyArray(menuItem.subMenuItems)) {
             return (
@@ -64,39 +65,6 @@ export default function NavBar() {
   )
 }
 
-/*
-<nav>
-    <ul class="menu">
-        <li class="logo"><a href="#">Creative Mind Agency</a></li>
-        <li class="item"><a href="#">Home</a></li>
-        <li class="item"><a href="#">About</a></li>
-        <li class="item has-submenu">
-            <a tabindex="0">Services</a>
-            <ul class="submenu">
-                <li class="subitem"><a href="#">Design</a></li>
-                <li class="subitem"><a href="#">Development</a></li>
-                <li class="subitem"><a href="#">SEO</a></li>
-                <li class="subitem"><a href="#">Copywriting</a></li>
-            </ul>
-        </li>
-        <li class="item has-submenu">
-            <a tabindex="0">Plans</a>
-            <ul class="submenu">
-                <li class="subitem"><a href="#">Freelancer</a></li>
-                <li class="subitem"><a href="#">Startup</a></li>
-                <li class="subitem"><a href="#">Enterprise</a></li>
-            </ul>
-        </li>
-        <li class="item"><a href="#">Blog</a></li>
-        <li class="item"><a href="#">Contact</a>
-        </li>
-        <li class="item button"><a href="#">Log In</a></li>
-        <li class="item button secondary"><a href="#">Sign Up</a></li>
-        <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-    </ul>
-</nav>
-*/
-
 function ParentMenuItem({ link, subMenuItems }) {
 
   const [active, setActive] = useState(false)
@@ -109,16 +77,18 @@ function ParentMenuItem({ link, subMenuItems }) {
   }
 
   return (
-  
-    <Link href="#">
+
+    <Link href="#" passHref>
       <li
-        className={`${styles.item} ${active ? styles.subMenuActive : ''}}`}
+        // className={`${styles.item} ${active ? styles.activeSubMenu : ''}}`}
+        // className={`${styles.item} ${active ? styles.activeSubMenu : ''} ${styles.hasSubMenu}}`}
+        className={`${styles.item} ${active ? styles.activeSubMenu : ''}}`}
         onClick={toggleItem}
         onKeyPress={toggleItem}
       >
         <a tabIndex="0">{link.title} <FontAwesomeIcon className={styles.subMenuIcon} icon={['fas', 'chevron-down']} /></a>
         <ul
-          // className={`${styles.subMenu} ${active ? styles.subMenuActive : ''}`}
+          // className={`${styles.subMenu} ${active ? styles.activeSubMenu : ''}`}
           className={`${styles.subMenu} ${active ? styles.activeSubMenu : ''}`}
         >
           {subMenuItems.map((nb, i) => {
@@ -137,13 +107,14 @@ function MenuItem(props) {
   // console.log("AIS >  ~ file: navbar.js ~ line 74 ~ NavItem ~ props", props)
   const itemStyle = props.style;
   return (
-    <Link href={props.link.href}>
-      <li className={`${itemStyle} ${(props.isActive ? styles.active : '')}`} key={props.index}>
+    <li className={`${itemStyle} ${(props.isActive ? styles.active : '')}`} key={props.index}>
+      <Link href={props.link.href} passHref={true}>
         <a>
           {props.link.title}
         </a>
-      </li>
-    </Link>
+      </Link>
+    </li >
+
   );
 }
 
