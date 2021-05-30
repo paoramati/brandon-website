@@ -111,15 +111,15 @@ function ParentMenuItem({ link, subMenuItems }) {
   return (
   
     <Link href="#">
+      {/* <li className={`${styles.item} ${styles.hasSubMenu}`}> */}
       <li
-        className={`${styles.item} ${active ? styles.subMenuActive : ''}}`}
+        className={`${styles.item}`}
         onClick={toggleItem}
         onKeyPress={toggleItem}
       >
         <a tabIndex="0">{link.title} <FontAwesomeIcon className={styles.subMenuIcon} icon={['fas', 'chevron-down']} /></a>
         <ul
-          // className={`${styles.subMenu} ${active ? styles.subMenuActive : ''}`}
-          className={`${styles.subMenu} ${active ? styles.activeSubMenu : ''}`}
+          className={`${styles.subMenu} ${active ? styles.subMenuActive : ''}`}
         >
           {subMenuItems.map((nb, i) => {
             return <MenuItem link={{
@@ -130,6 +130,21 @@ function ParentMenuItem({ link, subMenuItems }) {
         </ul>
       </li>
     </Link>
+
+    // <li className={`${styles.item} ${styles.hasSubMenu}`}>
+    //   <a tabIndex="0">{props.link.title}</a>
+    //   <ul className={styles.subMenu}>
+    //     {props.subNavButtons.map((nb, i) => {
+    //       return (
+    //         <NavItem
+    //           link={{ title: nb.title, href: nb.href }}
+    //           style={styles.subItem}
+    //           key={i}
+    //         />
+    //       )
+    //     })}
+    //   </ul>
+    // </li>
   )
 }
 

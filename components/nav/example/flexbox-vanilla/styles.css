@@ -1,4 +1,5 @@
-/* * {
+/* Basic styling */
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -10,24 +11,13 @@ body {
 nav {
   background: #222;
   padding: 0 15px;
-} */
-
-/* ul.menu {
-  padding: 0;
-  margin: 0;
-} */
-
-nav.nav {
-  background: #222;
-  padding: 0 15px;
 }
-
-.menu a {
+a {
   color: white;
   text-decoration: none;
 }
 .menu,
-.subMenu {
+.submenu {
   list-style-type: none;
 }
 .logo {
@@ -37,14 +27,13 @@ nav.nav {
 .item {
   padding: 10px;
 }
-/* .item.button {
+.item.button {
   padding: 9px 5px;
-} */
+}
 .item:not(.button) a:hover,
 .item a:hover::after {
   color: #ccc;
 }
-
 /* Mobile menu */
 .menu {
   display: flex;
@@ -53,11 +42,10 @@ nav.nav {
   align-items: center;
 }
 .menu li a {
-  border: 1px solid aqua;
   display: block;
   padding: 15px 5px;
 }
-.menu li.subItem a {
+.menu li.subitem a {
   padding: 15px;
 }
 .toggle {
@@ -72,7 +60,6 @@ nav.nav {
   width: 100%;
   text-align: center;
   display: none;
-  border: 1px indianred solid;
 }
 .active .item {
   display: block;
@@ -81,31 +68,29 @@ nav.nav {
   /* divider between buttons and menu links */
   border-bottom: 1px #444 solid;
 }
-
-/* subMenu up from mobile screens */
-.subMenu {
+/* Submenu up from mobile screens */
+.submenu {
   display: none;
 }
-
-/* .subMenuActive .subMenu {
-  display: block;
-} */
-
-.activeSubMenu {
+.submenu-active .submenu {
   display: block;
 }
-
-.subMenuIcon {
+.has-submenu i {
   font-size: 12px;
-  width: 12px;
+}
+.has-submenu > a::after {
+  font-family: "Font Awesome 5 Free";
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 900;
+  content: "\f078";
   color: white;
+  padding-left: 5px;
 }
-
-.subItem a {
+.subitem a {
   padding: 10px 15px;
-  border: 1px blueviolet solid;
 }
-.subMenuActive {
+.submenu-active {
   background-color: #111;
   border-radius: 3px;
 }
@@ -118,18 +103,18 @@ nav.nav {
   .logo {
     flex: 1;
   }
-  /* .item.button {
+  .item.button {
     width: auto;
     order: 1;
     display: block;
-  } */
+  }
   .toggle {
     flex: 1;
     text-align: right;
     order: 2;
   }
   /* Button up from tablet screen */
-  /* .menu li.button a {
+  .menu li.button a {
     padding: 10px 15px;
     margin: 5px 0;
   }
@@ -150,13 +135,11 @@ nav.nav {
   .button:not(.secondary) a:hover {
     background: royalblue;
     border-color: darkblue;
-  } */
+  }
 }
-
 /* Desktop menu */
 @media all and (min-width: 960px) {
   .menu {
-    display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
     background: none;
@@ -173,8 +156,7 @@ nav.nav {
   .button {
     order: 2;
   }
-  /* .subMenuActive .subMenu { */
-  .activeSubMenu {
+  .submenu-active .submenu {
     display: block;
     position: absolute;
     left: 0;
@@ -184,16 +166,7 @@ nav.nav {
   .toggle {
     display: none;
   }
-  .subMenuActive {
+  .submenu-active {
     border-radius: 0;
   }
-}
-
-.icon {
-  font-size: 26px;
-  width: 26px;
-}
-
-.debug {
-  border: 1px solid goldenrod;
 }
