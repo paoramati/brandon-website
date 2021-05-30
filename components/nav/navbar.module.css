@@ -23,7 +23,8 @@ nav.nav {
 } */
 .item:not(.button) a:hover,
 .item a:hover::after {
-  color: #ccc;
+  /* color: #ccc; */
+  color: var(--orange);
 }
 
 /* Mobile menu */
@@ -75,7 +76,12 @@ nav.nav {
 .subMenuIcon {
   font-size: 12px;
   width: 12px;
-  color: white;
+  color: var(--light);
+}
+
+a:hover .subMenuIcon,
+.subMenuIcon:hover {
+  color: var(--orange);
 }
 
 .subItem a {
@@ -83,7 +89,7 @@ nav.nav {
   /* border: 1px blueviolet solid; */
 }
 .activeSubMenu {
-  background-color: #111;
+  background-color: var(--dark);
   border-radius: 3px;
 }
 
@@ -162,10 +168,10 @@ nav.nav {
     position: absolute;
     left: -35px;
     top: 68px;
-    background: #111;
+    background: var(--dark);
   }
   .menu.activeSubMenu {
-    background: #111;
+    background: var(--dark);
   }
   .toggle {
     display: none;

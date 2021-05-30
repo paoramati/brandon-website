@@ -13,6 +13,8 @@ export default function Layout({ children, home }) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+                {/* <link href="https://fonts.googleapis.com/css2?family=Squada+One%26display=swap" rel="stylesheet"></link> */}
+
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"

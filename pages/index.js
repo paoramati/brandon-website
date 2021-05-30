@@ -14,11 +14,12 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{SITE_TITLE}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={`${utilStyles.headingMd} ${utilStyles.shadowBox} ${utilStyles.padding2}`}>
+        <h1 className={`${utilStyles.heading2Xl} ${utilStyles.maroon}`}>Brandon Paul - Developer</h1>
         <p>
           Hi, I'm Brandon.
         </p>
-        <p>
+        <p >
           I'm a software developer, and I would like to post about how I solve my software development problems.
         </p>
       </section>
