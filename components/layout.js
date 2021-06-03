@@ -7,6 +7,8 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import NavBar from './nav/navbar'
 import MyProfileIcons from '../components/myprofileicons'
+import { menuItems } from '../lib/config/navigation'
+
 
 export default function Layout({ children, home }) {
   return (
@@ -29,7 +31,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <NavBar />
+      <NavBar menuItems={menuItems} />
 
       <div
         className={styles.container}>

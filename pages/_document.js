@@ -15,9 +15,9 @@ class MyDocument extends Document {
         {/* <link rel="preconnect" href="https://fonts.gstatic.com"> */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Squada+One%26display=swap" rel="stylesheet"></link> */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400%26family=Squada+One%26display=swap" rel="stylesheet"></link> */}
-        <link
+        {/* <link
           rel="preload" href="/fonts/SquadaOne/SquadaOne-Regular.ttf" as="font" crossOrigin=""
-        />
+        /> */}
         {fonts.map(font => {
           return <link rel="preload" href={font.href} as="font" crossOrigin=""></link>
         })}

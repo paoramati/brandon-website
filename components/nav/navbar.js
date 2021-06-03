@@ -6,15 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { useRouter } from "next/router";
 
-import { menuItems } from '../../lib/config/navigation'
 import { isEmptyArray } from '../../lib/utils/array-utils'
 
 import { useState } from 'react';
 
 
-
-
-export default function NavBar() {
+export default function NavBar({ menuItems }) {
 
   const [toggleActive, setToggleActive] = useState(false);
   const handleSetActive = (value) => {
